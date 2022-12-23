@@ -1,0 +1,19 @@
+{
+  "name": "simplepasswordgenerator",
+  "short_name": "simplepasswordgenerator",
+  "description": "A simple and easy to use password generator.",
+  "icons": [
+    {
+      "src": "https://thedoggybrad.github.io/simplepasswordgenerator/421648.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+    }
+  ],
+  "start_url": "https://thedoggybrad.github.io/simplepasswordgenerator/index.html",
+  "display": "standalone",
+  "background_color": "#3B3B98",
+  "background_color": "#3B3B98",
+  "orientation": "portrait"
+}
