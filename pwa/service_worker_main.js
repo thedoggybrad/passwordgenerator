@@ -5,7 +5,7 @@ const CACHE_NAME = 'simplepasswordgenerator';
 const resourceList = [
   '/',
   'https://thedoggybrad.github.io/simplepasswordgenerator/index.html',
-  'https://thedoggybrad.github.io/simplepasswordgenerator/421648.png',
+  'https://cdn.jsdelivr.net/gh/thedoggybrad/simplepasswordgenerator@main/421648.png',
   'https://cdn.jsdelivr.net/gh/thedoggybrad/simplepasswordgenerator@main/script.js',
   'https://cdn.jsdelivr.net/gh/thedoggybrad/simplepasswordgenerator@main/style.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'
