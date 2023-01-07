@@ -6,7 +6,7 @@ const resourceList = [
   '/',
   'https://thedoggybrad.github.io/simplepasswordgenerator/index.html',
   'https://thedoggybrad.github.io/simplepasswordgenerator/421648.png',
-  'https://thedoggybrad.github.io/simplepasswordgenerator/script.js',
+  'https://cdn.jsdelivr.net/gh/thedoggybrad/simplepasswordgenerator@main/script.js',
   'https://thedoggybrad.github.io/simplepasswordgenerator/style.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'
 ];
