@@ -15,18 +15,37 @@ const randomFunc = {
 }
 
 clipboardEl.addEventListener('click', () => {
-    const textarea = document.createElement('textarea')
-    const password = resultEl.innerText
+  const textarea = document.createElement('textarea');
+  const password = resultEl.innerText;
 
-    if(!password) { return }
+  if (!password) {
+    return;
+  }
 
-    textarea.value = password
-    document.body.appendChild(textarea)
-    textarea.select()
-    document.execCommand('copy')
-    textarea.remove()
-    alert('The password we have generated is now been copied in your clipboard.')
-})
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(password)
+      .then(() => {
+        textarea.remove();
+        alert('The password we have generated has been copied to your clipboard.');
+      })
+      .catch((error) => {
+        console.error('Failed to copy password to clipboard:', error);
+      });
+  } else {
+    // Fallback for browsers that don't support the Clipboard API
+    textarea.focus();
+    document.execCommand('selectAll');
+    document.execCommand('copy');
+    textarea.blur();
+    textarea.remove();
+    alert('The password we have generated has been copied to your clipboard.');
+  }
+});
+
 
 generateEl.addEventListener('click', () => {
     const length = +lengthEl.value
