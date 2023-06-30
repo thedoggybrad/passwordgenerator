@@ -22,29 +22,35 @@ clipboardEl.addEventListener('click', () => {
     return;
   }
 
+  textarea.style.position = 'fixed';
+  textarea.style.top = '-9999px';  // Position off-screen
   textarea.value = password;
   document.body.appendChild(textarea);
   textarea.select();
 
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(password)
-      .then(() => {
-        textarea.remove();
-        alert('The password we have generated has been copied to your clipboard.');
-      })
-      .catch((error) => {
-        console.error('Failed to copy password to clipboard:', error);
-      });
-  } else {
-    // Fallback for browsers that don't support the Clipboard API
-    textarea.focus();
-    document.execCommand('selectAll');
-    document.execCommand('copy');
-    textarea.blur();
-    textarea.remove();
-    alert('The password we have generated has been copied to your clipboard.');
+  try {
+    if (document.execCommand('copy')) {
+      textarea.remove();
+      alert('The password we have generated has been copied to your clipboard.');
+    } else {
+      throw new Error('Copying to clipboard failed.');
+    }
+  } catch (error) {
+    console.error('Failed to copy password to clipboard:', error);
+    document.body.removeChild(textarea);
+    fallbackCopyToClipboard(password);
+    alert('The password we have generated has been copied to your clipboard (fallback method).');
   }
 });
+
+function fallbackCopyToClipboard(password) {
+  const fallbackTextArea = document.createElement('textarea');
+  fallbackTextArea.value = password;
+  document.body.appendChild(fallbackTextArea);
+  fallbackTextArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(fallbackTextArea);
+}
 
 
 generateEl.addEventListener('click', () => {
