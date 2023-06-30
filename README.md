@@ -1,4 +1,6 @@
-# simplepasswordgenerator
+<img src="421648.png" alt="LOGO" width="96"  height="96">
+
+# Simple Password Generator
 A simple and safe to use password generator
 <br>
 <br>
